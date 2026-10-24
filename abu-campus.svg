@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Ahmadu Bello University Zaria campus illustration">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#dfead2"/>
+      <stop offset="48%" stop-color="#d9f0d0"/>
+      <stop offset="100%" stop-color="#cfe2bf"/>
+    </linearGradient>
+    <linearGradient id="grass" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#7fa96e"/>
+      <stop offset="100%" stop-color="#54784f"/>
+    </linearGradient>
+    <linearGradient id="building" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f0efe9"/>
+      <stop offset="100%" stop-color="#d4d3ca"/>
+    </linearGradient>
+    <linearGradient id="gate" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#446d4d"/>
+      <stop offset="100%" stop-color="#2a4a37"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <circle cx="1280" cy="130" r="82" fill="#f7f0b2" opacity="0.9"/>
+
+  <path d="M0 620 C 230 565, 290 560, 420 610 S 760 650, 900 615 S 1340 560, 1600 620 L1600 900 L0 900 Z" fill="url(#grass)"/>
+
+  <g opacity="0.95">
+    <path d="M128 525 L160 425 L191 525 Z" fill="#9ebc89"/>
+    <path d="M205 525 L252 382 L300 525 Z" fill="#86a374"/>
+    <path d="M1250 545 L1311 348 L1382 545 Z" fill="#8ea77a"/>
+    <path d="M1370 545 L1436 390 L1516 545 Z" fill="#738f62"/>
+  </g>
+
+  <g>
+    <rect x="360" y="315" width="860" height="255" rx="12" fill="#e8e5dc"/>
+    <rect x="420" y="355" width="740" height="198" rx="10" fill="url(#building)"/>
+    <rect x="468" y="390" width="122" height="160" fill="#d5d4cb"/>
+    <rect x="608" y="390" width="122" height="160" fill="#d5d4cb"/>
+    <rect x="748" y="390" width="122" height="160" fill="#d5d4cb"/>
+    <rect x="888" y="390" width="122" height="160" fill="#d5d4cb"/>
+    <rect x="1028" y="390" width="102" height="160" fill="#d5d4cb"/>
+    <g fill="#9aa288">
+      <rect x="487" y="418" width="84" height="16"/>
+      <rect x="627" y="418" width="84" height="16"/>
+      <rect x="767" y="418" width="84" height="16"/>
+      <rect x="907" y="418" width="84" height="16"/>
+      <rect x="1047" y="418" width="64" height="16"/>
+    </g>
+  </g>
+
+  <g>
+    <rect x="660" y="520" width="270" height="95" rx="8" fill="url(#gate)"/>
+    <rect x="705" y="515" width="180" height="76" rx="4" fill="#e9d7a8" opacity="0.18"/>
+    <path d="M690 593 L690 520 L722 520 L722 593 Z" fill="#254630"/>
+    <path d="M910 593 L910 520 L878 520 L878 593 Z" fill="#254630"/>
+    <path d="M775 520 L825 520 L825 593 L775 593 Z" fill="#c6ad5a" opacity="0.7"/>
+    <path d="M800 518 L800 593" stroke="#e5d3a0" stroke-width="7" stroke-linecap="round"/>
+  </g>
+
+  <g opacity="0.9">
+    <path d="M0 700 L1600 700" stroke="#9ab980" stroke-width="10"/>
+    <path d="M0 740 L1600 740" stroke="#8aa773" stroke-width="18"/>
+    <path d="M0 780 L1600 780" stroke="#6d8d5a" stroke-width="14"/>
+  </g>
+
+  <g>
+    <text x="800" y="250" text-anchor="middle" font-family="Georgia, serif" font-size="54" fill="#2e4f3a" font-weight="700">AHMADU BELLO UNIVERSITY</text>
+    <text x="800" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#416a4f" letter-spacing="8">ZARIA • KADUNA</text>
+  </g>
+</svg>

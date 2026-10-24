@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f7f2" />
+    <meta
+      name="description"
+      content="CampNet is the student social network for Ahmadu Bello University."
+    />
+    <title>CampNet | ABU, together</title>
+    <script>
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("campnet.theme") ||
+          (matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light");
+      } catch {
+        document.documentElement.dataset.theme = "light";
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="campnet.css" />
+  </head>
+  <body>
+    <!-- Sign-in and account creation screen. -->
+    <div id="auth-screen" class="auth-screen">
+      <section class="auth-story" aria-label="Welcome to CampNet">
+        <a class="wordmark wordmark-light" href="#"
+          ><span class="logo-symbol">c<span>.</span></span
+          ><span>campnet</span></a
+        >
+        <div class="story-copy">
+          <p class="eyebrow eyebrow-light">Made for Ahmadu Bello University</p>
+          <h1>Your campus.<br /><span>Your people.</span></h1>
+          <p>
+            Find your circle, trade notes, and catch what’s happening around
+            ABU.
+          </p>
+        </div>
+        <div
+          class="story-photo"
+          role="img"
+          aria-label="Students walking together across a university campus"
+        >
+          <span class="photo-caption"
+            >Ahmadu Bello University <b>·</b> Zaria, Kaduna</span
+          >
+        </div>
+        <div class="story-foot">
+          <span>One campus, a thousand stories.</span><span>01 / 03</span>
+        </div>
+      </section>
+      <main class="auth-main">
+        <div class="auth-topline">
+          <button
+            class="icon-button theme-toggle"
+            data-theme-toggle
+            type="button"
+            aria-label="Switch to dark mode"
+            title="Switch to dark mode"
+            aria-pressed="false"
+          >
+            <span aria-hidden="true">☾</span></button
+          ><span>Already part of the community?</span
+          ><button id="auth-switch-top" class="text-button" type="button">
+            Create account <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+        <section class="auth-form-wrap">
+          <div class="auth-intro">
+            <p class="eyebrow">The ABU student network</p>
+            <h2 id="auth-title">Good to have you back.</h2>
+            <p id="auth-subtitle">Sign in to pick up where campus left off.</p>
+          </div>
+          <div class="auth-tabs" role="tablist" aria-label="Account access">
+            <button
+              class="auth-tab active"
+              id="login-tab"
+              role="tab"
+              aria-selected="true"
+              type="button"
+            >
+              Sign in</button
+            ><button
+              class="auth-tab"
+              id="signup-tab"
+              role="tab"
+              aria-selected="false"
+              type="button"
+            >
+              Join CampNet
+            </button>
+          </div>
+          <form id="auth-form">
+            <label id="name-field" class="field" hidden
+              ><span>Your name</span
+              ><input
+                id="name-input"
+                name="name"
+                autocomplete="name"
+                placeholder="e.g. Amina Yusuf"
+            /></label>
+            <label class="field"
+              ><span>University email</span
+              ><input
+                id="email-input"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="you@example.com"
+                required
+            /></label>
+            <label class="field"
+              ><span>Password</span
+              ><input
+                id="password-input"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                placeholder="At least 6 characters"
+                minlength="6"
+                required
+            /></label>
+            <div id="auth-error" class="form-error" role="alert" hidden></div>
+            <button id="auth-submit" class="submit-button" type="submit">
+              <span>Sign in to CampNet</span><span aria-hidden="true">→</span>
+            </button>
+          </form>
+          <div class="auth-separator"><span>new around here?</span></div>
+          <button id="demo-button" class="demo-button" type="button">
+            <span class="demo-icon">✳</span
+            ><span
+              ><b>Take a look around</b
+              ><small>Continue with a sample student profile</small></span
+            ><span class="demo-arrow">↗</span>
+          </button>
+          <p class="auth-note">
+            By joining, you agree to keep CampNet kind, useful, and for ABU
+            students.
+          </p>
+        </section>
+        <footer class="auth-footer">
+          <span>CampNet by Sadeeq Jumare</span><span>Built around ABU.</span>
+        </footer>
+      </main>
+    </div>
+
+    <!-- Main CampNet interface shown after entering the app. -->
+    <div id="app-screen" class="app-screen" hidden>
+      <!-- Desktop navigation and the signed-in student's profile shortcut. -->
+      <aside class="sidebar">
+        <a class="wordmark" href="#home"
+          ><span class="logo-symbol">c<span>.</span></span
+          ><span>campnet</span></a
+        >
+        <div class="campus-switch">
+          <span class="campus-crest">A</span
+          ><span><b>Ahmadu Bello</b><small>University · Zaria</small></span
+          ><span class="chevron">⌄</span>
+        </div>
+        <nav class="main-nav" aria-label="Main navigation">
+          <p class="nav-label">YOUR CAMPUS</p>
+          <button class="nav-item active" data-view="home">
+            <span class="nav-icon">⌂</span>Home
+          </button>
+          <button class="nav-item" data-view="discover">
+            <span class="nav-icon">⌕</span>Discover<span class="nav-count"
+              >4</span
+            >
+          </button>
+          <button class="nav-item" data-view="messages">
+            <span class="nav-icon">▤</span>Messages<span
+              class="unread-dot"
+              id="message-unread-dot"
+            ></span>
+          </button>
+          <button class="nav-item" data-view="notifications">
+            <span class="nav-icon">♧</span>Notifications<span
+              class="notification-count"
+              id="notification-count"
+              >0</span
+            >
+          </button>
+          <p class="nav-label nav-label-spaced">YOUR SPACE</p>
+          <button class="nav-item" data-view="profile">
+            <span class="nav-icon">◉</span>My profile
+          </button>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="campus-note">
+            <span class="note-mark">✳</span>
+            <p>
+              <b>Good things grow together.</b><br />Make this campus feel a
+              little smaller.
+            </p>
+          </div>
+          <button id="sidebar-profile" class="mini-profile" type="button">
+            <span class="avatar avatar-me" id="sidebar-avatar">S</span
+            ><span class="mini-profile-copy"
+              ><b id="sidebar-name">Student</b
+              ><small id="sidebar-programme">ABU student</small></span
+            ><span class="more-dots">···</span>
+          </button>
+          <div id="profile-menu" class="profile-menu" hidden>
+            <button data-profile-action="edit" type="button">Edit profile</button>
+            <button data-profile-action="settings" type="button">Account settings</button>
+            <button data-profile-action="logout" type="button" class="danger">Log out</button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main content changes when a navigation button selects another view. -->
+      <main class="feed-area">
+        <header class="mobile-header">
+          <a class="wordmark" href="#home"
+            ><span class="logo-symbol">c<span>.</span></span
+            ><span>campnet</span></a
+          ><button
+            class="avatar avatar-me mobile-user"
+            data-view="profile"
+            aria-label="Open profile"
+          >
+            S
+          </button>
+        </header>
+        <div class="feed-topbar">
+          <div>
+            <p class="eyebrow" id="date-label">ABU · ZARIA</p>
+            <h1 id="view-title">Your campus, in the loop.</h1>
+          </div>
+          <div class="top-actions">
+            <label class="search-box"
+              ><span aria-hidden="true">⌕</span
+              ><input
+                id="search-input"
+                type="search"
+                placeholder="Find your people"
+                aria-label="Search CampNet" /></label
+            ><button
+              class="icon-button theme-toggle"
+              data-theme-toggle
+              type="button"
+              aria-label="Switch to dark mode"
+              title="Switch to dark mode"
+              aria-pressed="false"
+            >
+              <span aria-hidden="true">☾</span></button
+            ><button
+              class="icon-button"
+              id="top-notifications"
+              aria-label="Notifications"
+            >
+              <span>♧</span><i></i>
+            </button>
+          </div>
+        </div>
+        <div id="view-content"></div>
+      </main>
+
+      <!-- Supporting profile, event, and trending information. -->
+      <aside class="right-rail">
+        <section class="rail-section profile-card">
+          <div class="profile-cover"></div>
+          <div class="profile-card-body">
+            <span class="avatar avatar-large avatar-me" id="profile-avatar"
+              >S</span
+            >
+            <h2 id="profile-name">Student</h2>
+            <p id="profile-detail">ABU student · Zaria</p>
+            <div class="profile-stats">
+              <span><b id="my-post-count">0</b> posts</span
+              ><span><b id="connection-count">0</b> connections</span>
+            </div>
+            <button class="profile-link" data-view="profile">
+              View your profile <span>→</span>
+            </button>
+          </div>
+        </section>
+        <section class="rail-section events-section">
+          <div class="rail-heading">
+              <span>♧</span><i id="notification-dot"></i>
+              <p class="eyebrow">Mark your calendar</p>
+              <h2>On campus</h2>
+            </div>
+            <button class="quiet-link" data-view="events">See all</button>
+          </div>
+          <div id="events-list"></div>
+        </section>
+        <section class="rail-section trends-section">
+          <div class="rail-heading">
+            <div>
+              <p class="eyebrow">Around ABU</p>
+              <h2>Campus talk</h2>
+            </div>
+            <span class="live-label"><i></i> LIVE</span>
+          </div>
+          <div class="trend-item">
+            <span class="trend-number">01</span>
+            <div><b>#ABUReads</b><small>128 students talking</small></div>
+            <span class="trend-arrow">↗</span>
+          </div>
+          <div class="trend-item">
+            <span class="trend-number">02</span>
+            <div><b>Freshers week</b><small>76 students talking</small></div>
+            <span class="trend-arrow">↗</span>
+          </div>
+          <div class="trend-item">
+            <span class="trend-number">03</span>
+            <div>
+              <b>Library late hours</b><small>42 students talking</small>
+            </div>
+            <span class="trend-arrow">↗</span>
+          </div>
+        </section>
+        <section class="rail-section quick-actions-section">
+          <div class="rail-heading">
+            <div>
+              <p class="eyebrow">Need a nudge?</p>
+              <h2>Quick actions</h2>
+            </div>
+          </div>
+          <div class="quick-actions">
+            <button class="quick-action" data-quick-action="study" type="button">
+              <span class="quick-icon">◫</span>
+              <span>
+                <b>Study buzz</b>
+                <small>Find quiet rooms</small>
+              </span>
+            </button>
+            <button class="quick-action" data-quick-action="events" type="button">
+              <span class="quick-icon">✦</span>
+              <span>
+                <b>Events</b>
+                <small>See what’s on</small>
+              </span>
+            </button>
+            <button class="quick-action" data-quick-action="ask" type="button">
+              <span class="quick-icon">?</span>
+              <span>
+                <b>Ask ABU</b>
+                <small>Campus help desk</small>
+              </span>
+            </button>
+          </div>
+        </section>
+        <footer class="rail-footer">
+          <span>CampNet by Sadeeq Jumare</span
+          ><span>About · Community guidelines · Privacy</span
+          ><span>© 2026 CampNet</span>
+        </footer>
+      </aside>
+      <!-- Fixed navigation shown on smaller screens. -->
+      <nav class="mobile-nav" aria-label="Mobile navigation">
+        <button class="active" data-view="home"><span>⌂</span>Home</button
+        ><button data-view="discover"><span>⌕</span>Discover</button
+        ><button data-view="messages"><span>▤</span>Messages</button
+        ><button data-view="notifications"><span>♧</span>Alerts</button
+        ><button data-view="profile"><span>◉</span>Profile</button>
+      </nav>
+      <div id="settings-modal" class="modal-backdrop" hidden>
+        <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+          <div class="modal-header">
+            <div>
+              <p class="eyebrow">YOUR ACCOUNT</p>
+              <h3 id="settings-title">CampNet settings</h3>
+            </div>
+            <button class="icon-button" id="close-settings" type="button" aria-label="Close settings">×</button>
+          </div>
+          <form id="settings-form" class="settings-form">
+            <label class="toggle-row">
+              <span>
+                <b>Campus notifications</b>
+                <small>See updates from your circle and ABU events.</small>
+              </span>
+              <input id="setting-notifications" type="checkbox" checked />
+            </label>
+            <label class="toggle-row">
+              <span>
+                <b>Private mode</b>
+                <small>Hide your profile from quick discovery suggestions.</small>
+              </span>
+              <input id="setting-private" type="checkbox" />
+            </label>
+            <label class="toggle-row">
+              <span>
+                <b>Campus-only feed</b>
+                <small>Keep the home feed focused on ABU conversations.</small>
+              </span>
+              <input id="setting-campus" type="checkbox" checked />
+            </label>
+            <div class="modal-actions">
+              <button type="button" class="secondary-button" id="cancel-settings">Cancel</button>
+              <button type="submit" class="submit-button inline-submit">Save changes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="profile-editor-modal" class="modal-backdrop" hidden>
+        <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="profile-editor-title">
+          <div class="modal-header">
+            <div>
+              <p class="eyebrow">PROFILE</p>
+              <h3 id="profile-editor-title">Edit your profile</h3>
+            </div>
+            <button class="icon-button" id="close-profile-editor" type="button" aria-label="Close profile editor">×</button>
+          </div>
+          <form id="profile-editor-form" class="settings-form">
+            <label class="field compact-field">
+              <span>Your name</span>
+              <input id="profile-name-input" name="name" type="text" maxlength="50" required />
+            </label>
+            <label class="field compact-field">
+              <span>Programme</span>
+              <input id="profile-programme-input" name="programme" type="text" maxlength="80" required />
+            </label>
+            <div class="modal-actions">
+              <button type="button" class="secondary-button" id="cancel-profile-editor">Cancel</button>
+              <button type="submit" class="submit-button inline-submit">Update profile</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    </div>
+    <script src="campnet.js"></script>
+  </body>
+</html>

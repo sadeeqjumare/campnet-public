@@ -1,0 +1,9 @@
+# Editor and operating-system files
+.idea/
+.DS_Store
+Thumbs.db
+
+# Never publish local configuration or credentials.
+.env
+.env.*
+!.env.example
